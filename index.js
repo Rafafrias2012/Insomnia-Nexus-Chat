@@ -18,6 +18,10 @@ io.on('connection', (socket) => {
         io.emit('chat message', data);
     });
 
+    socket.on('media message', (data) => {
+        io.emit('media message', data);
+    });
+
     socket.on('disconnect', () => {
         if (socket.nickname) {
             members.delete(socket.nickname);
